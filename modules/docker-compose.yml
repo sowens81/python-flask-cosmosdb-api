@@ -1,1 +1,16 @@
-
+version: '3.5'
+services:
+  web_dev:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - ENV=development
+      - PORT=8000
+      - DB=mongodb://sopythondev:v9mJl9aHuotgiS0xHldSgRUaWCEASTv1Jbn82SkQqfRiEEj6XcnXBacvMoV1JU7GretigdcfkRdqZwpECSSjbg==@sopythondev.documents.azure.com:10255/?ssl=true&replicaSet=globaldb
+    
+networks:
+  default:
+    name: web_dev
