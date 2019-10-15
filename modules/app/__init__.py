@@ -4,8 +4,7 @@ import json
 import datetime
 from bson.objectid import ObjectId
 from flask import Flask
-from flask_pymongo import PyMongo
-
+from pymongo import MongoClient
 
 
 class JSONEncoder(json.JSONEncoder):
@@ -23,11 +22,14 @@ class JSONEncoder(json.JSONEncoder):
 
 # create the flask object
 app = Flask(__name__)
-app.config["MONGO_URI"] = os.environ.get('DB')
-mongo = PyMongo(app)
 
+# Create a connection to CosmosDB
+client = MongoClient(os.getenv("MONGOURL"))
+db = client.test    #Select the database
+db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 
 
 app.json_encoder = JSONEncoder
+
 
 from app.controllers import *  # pylint: disable=W0401,C0413

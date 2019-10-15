@@ -1,7 +1,7 @@
 ''' controller and routes for users '''
 import os
 from flask import request, jsonify
-from app import app, mongo
+from app import app, db
 import logger
 
 ROOT_PATH = os.environ.get('ROOT_PATH')
@@ -13,14 +13,14 @@ LOG = logger.get_root_logger(
 def user():
     if request.method == 'GET':
         query = request.args
-        collection = mongo.db.users
+        collection = db.users #Select the collection
         data = collection.find_one(query)
         return jsonify(data), 200
 
     data = request.get_json()
     if request.method == 'POST':
         if data.get('name', None) is not None and data.get('email', None) is not None:
-            collection = mongo.db.users
+            collection = db.users #Select the collection
             collection.insert_one(data)
             return jsonify({'ok': True, 'message': 'User created successfully!'}), 200
         else:
@@ -28,7 +28,7 @@ def user():
 
     if request.method == 'DELETE':
         if data.get('email', None) is not None:
-            collection = 
+            collection = db.users #Select the collection
             db_response = collection.delete_one({'email': data['email']})
             if db_response.deleted_count == 1:
                 response = {'ok': True, 'message': 'record deleted'}
@@ -40,7 +40,7 @@ def user():
 
     if request.method == 'PATCH':
         if data.get('query', {}) != {}:
-            collection = mongo.db.users
+            collection = db.users #Select the collection
             collection.update_one(
                 data['query'], {'$set': data.get('payload', {})})
             return jsonify({'ok': True, 'message': 'record updated'}), 200

@@ -9,7 +9,9 @@ services:
     environment:
       - ENV=development
       - PORT=8000
-      - DB=mongodb://sopythondev:v9mJl9aHuotgiS0xHldSgRUaWCEASTv1Jbn82SkQqfRiEEj6XcnXBacvMoV1JU7GretigdcfkRdqZwpECSSjbg==@sopythondev.documents.azure.com:10255/?ssl=true&replicaSet=globaldb
+      - MONGOURL=mongodb://sopythondev.documents.azure.com:10255/?ssl=true
+      - MONGO_USERNAME=sopythondev
+      - MONGO_PASSWORD=v9mJl9aHuotgiS0xHldSgRUaWCEASTv1Jbn82SkQqfRiEEj6XcnXBacvMoV1JU7GretigdcfkRdqZwpECSSjbg==
     
 networks:
   default:

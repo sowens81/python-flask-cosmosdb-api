@@ -46,3 +46,7 @@
 2019-10-15 21:59:39,071 - root - INFO - running environment: development
 2019-10-15 21:59:58,996 - root - INFO - running environment: development
 2019-10-15 21:59:59,348 - root - INFO - running environment: development
+2019-10-15 22:38:19,342 - root - INFO - running environment: development
+2019-10-15 22:38:19,819 - root - INFO - running environment: development
+2019-10-15 22:38:30,671 - root - ERROR - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2019-10-15 22:39:49,660 - root - INFO - running environment: development
