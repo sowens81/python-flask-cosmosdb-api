@@ -1,0 +1,18 @@
+version: '3.5'
+services:
+  web_dev:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - ENV=development
+      - PORT=8000
+      - MONGOURL=mongodb://sopythondev.documents.azure.com:10255/?ssl=true
+      - MONGO_USERNAME=sopythondev
+      - MONGO_PASSWORD=v9mJl9aHuotgiS0xHldSgRUaWCEASTv1Jbn82SkQqfRiEEj6XcnXBacvMoV1JU7GretigdcfkRdqZwpECSSjbg==
+    
+networks:
+  default:
+    name: web_dev
