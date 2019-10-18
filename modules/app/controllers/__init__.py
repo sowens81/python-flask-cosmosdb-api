@@ -1,4 +1,4 @@
-""" all controllers for various collection of database """
+""" all controllers """
 import os
 import glob
 

@@ -5,6 +5,8 @@ import datetime
 from bson.objectid import ObjectId
 from flask import Flask
 from pymongo import MongoClient
+from flask_jwt_extended import JWTManager
+from flask_bcrypt import Bcrypt
 
 
 class JSONEncoder(json.JSONEncoder):
@@ -22,13 +24,18 @@ class JSONEncoder(json.JSONEncoder):
 
 # create the flask object
 app = Flask(__name__)
+app.config['MONGOURL'] = os.environ.get('MONGOURL')
+app.config['MONGO_USERNAME'] = os.environ.get('MONGO_USERNAME')
+app.config['MONGO_PASSWORD'] = os.environ.get('MONGO_PASSWORD')
+app.config['JWT_SECRET_KEY'] = os.environ.get('SECRET')
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(days=1)
 
 # Create a connection to CosmosDB
-client = MongoClient(os.getenv("MONGOURL"))
+client = MongoClient(app.config['MONGOURL'])
 db = client.test    #Select the database
-db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
-
-
+db.authenticate(name=app.config['MONGO_USERNAME'],password=app.config['MONGO_PASSWORD'])
+flask_bcrypt = Bcrypt(app)
+jwt =JWTManager(app)
 app.json_encoder = JSONEncoder
 
 
