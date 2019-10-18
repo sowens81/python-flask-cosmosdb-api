@@ -6,7 +6,10 @@ from jsonschema.exceptions import SchemaError
 user_schema = {
     "type": "object",
     "properties": {
-        "name": {
+        "firstname": {
+            "type": "string",
+        },
+        "lastname": {
             "type": "string",
         },
         "email": {

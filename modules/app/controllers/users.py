@@ -72,17 +72,10 @@ def refresh():
 def user():
     ''' route read user '''
     if request.method == 'GET':
-        if request.args.get("email") != None:
-            query = request.args
-            data = db.users.find_one(query, {"email": query.get("email")})
-            return jsonify({'ok': True, 'data': data}), 200
-        elif request.args.get("name") != None:
-            query = request.args
-            data = db.users.find_one(query, {"name": query.get("name")})
-            return jsonify({'ok': True, 'data': data}), 200
-        else:
-            return jsonify({'ok': False, 'message': 'Bad request parameters!'}), 400
-            
+        query = request.args
+        data = db.users.find_one(query, {"email": query.get("email")})
+        return jsonify({'ok': True, 'data': data}), 200
+
 
     data = request.get_json()
     if request.method == 'DELETE':

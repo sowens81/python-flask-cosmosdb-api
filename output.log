@@ -119,3 +119,13 @@
 2019-10-18 12:28:07,564 - root - INFO - running environment: development
 2019-10-18 12:29:18,118 - root - ERROR - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
 2019-10-18 12:31:19,216 - root - INFO - running environment: development
+2019-10-18 12:31:55,746 - app.controllers.users - DEBUG - {'name': 'matt', 'email': 'matt@hotmail.com', 'password': b'$2b$12$ePxdmR1LXymHY.4R3q0yfeI1MM1.cUZw8YHJOUJNdLQi9Lf/TSfGe'}
+2019-10-18 12:36:40,691 - root - ERROR - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2019-10-18 12:37:19,331 - root - ERROR - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2019-10-18 12:48:41,460 - root - INFO - running environment: development
+2019-10-18 12:49:21,526 - root - INFO - running environment: development
+2019-10-18 12:49:36,017 - root - INFO - running environment: development
+2019-10-18 12:51:09,993 - root - ERROR - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2019-10-18 12:51:34,967 - root - ERROR - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2019-10-18 12:54:44,480 - root - ERROR - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2019-10-18 12:54:50,201 - root - ERROR - 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
