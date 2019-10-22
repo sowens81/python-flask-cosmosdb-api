@@ -131,8 +131,8 @@ function djRegistration() {
     xhr.onload = function() {
         if (xhr.status === 200) {
             var userInfo = JSON.parse(xhr.responseText);
-            document.getElementById('registration_response').innerHTML = "Thankyou for Registering!"
-            document.getElementById('form_response').style.display = "none";
+            document.getElementById('dj_registration_response').innerHTML = "Thankyou for Registering!"
+            document.getElementById('dj_form_response').style.display = "none";
         }
     };
     xhr.send(JSON.stringify({
@@ -140,6 +140,26 @@ function djRegistration() {
         lastname: document.getElementById('dj_lastname').value,
         email: document.getElementById('dj_email').value,
         password: document.getElementById('password').value})
+    );
+}
+
+function labelRegistration() {
+    
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://0.0.0.0:8000/register');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            var userInfo = JSON.parse(xhr.responseText);
+            document.getElementById('label_registration_response').innerHTML = "Thankyou for Registering!"
+            document.getElementById('label_form_response').style.display = "none";
+        }
+    };
+    xhr.send(JSON.stringify({
+        firstname: document.getElementById('label_firstname').value ,
+        lastname: document.getElementById('label_lastname').value,
+        email: document.getElementById('label_email').value,
+        password: document.getElementById('label_password').value})
     );
 }
 
